@@ -1,0 +1,21 @@
+# Virtual environment
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Note: the small trained models (runs/*/ *.pt, ~80 KB each) and the AAPL sample
+# (data/aapl.csv, ~60 KB) ARE committed on purpose, so the repo is self-contained
+# and the notebooks reproduce without retraining. Only ignore bulky/no-value output:
+runs/**/*.log
+*.tmp
