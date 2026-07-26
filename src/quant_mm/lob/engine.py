@@ -2,9 +2,9 @@
 
 This is where **price-time priority** is enforced on every incoming order:
 
-* *Price priority*  -- we always match against the best (most aggressive)
+* *Price priority*  - we always match against the best (most aggressive)
   opposing price level first (:meth:`OrderBook.best_level`).
-* *Time priority*   -- within a level we always hit the **head** of the FIFO,
+* *Time priority*   - within a level we always hit the **head** of the FIFO,
   i.e. the order that has rested longest.
 
 An incoming order "walks the book", taking liquidity level by level until it is
@@ -51,7 +51,7 @@ class MatchingEngine:
 
         A ``LIMIT`` order requires a ``price``. A ``MARKET`` order ignores price,
         takes whatever liquidity exists, and never rests (any unfilled remainder
-        is simply dropped — modelled as immediate-or-cancel for the residual).
+        is simply dropped - modelled as immediate-or-cancel for the residual).
         """
         if order_type is OrderType.LIMIT and price is None:
             raise ValueError("limit orders require a price")

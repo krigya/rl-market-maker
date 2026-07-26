@@ -1,4 +1,4 @@
-"""Analytic and heuristic quoting policies -- the agents the RL must beat.
+"""Analytic and heuristic quoting policies - the agents the RL must beat.
 
 The headline is :class:`AvellanedaStoikovAgent`, the closed-form optimal market
 maker from Avellaneda & Stoikov (2008). It is the natural benchmark: a
@@ -8,7 +8,7 @@ principled, inventory-aware quoter derived from stochastic optimal control, with
 The Avellaneda-Stoikov rule
 ---------------------------
 Around the observable mid ``s``, with inventory ``q`` and time-to-horizon
-``(T - t)``, define a **reservation price** -- the inventory-adjusted fair value
+``(T - t)``, define a **reservation price** - the inventory-adjusted fair value
 the maker quotes around:
 
     r(s, t) = s - q * gamma * sigma^2 * (T - t)
@@ -87,7 +87,7 @@ class AvellanedaStoikovAgent:
 
 
 class FixedSymmetricAgent:
-    """Quote a constant offset on both sides -- the simplest naive market maker."""
+    """Quote a constant offset on both sides - the simplest naive market maker."""
 
     def __init__(self, env_cfg: MMEnvConfig, offset_ticks: int = 3) -> None:
         self.n = env_cfg.n_offsets
@@ -101,7 +101,7 @@ class FixedSymmetricAgent:
 
 
 class RandomAgent:
-    """Uniformly random actions -- a sanity floor for the comparison."""
+    """Uniformly random actions - a sanity floor for the comparison."""
 
     def __init__(self, env_cfg: MMEnvConfig, seed: int | None = None) -> None:
         self.n_actions = env_cfg.n_offsets**2

@@ -5,7 +5,7 @@ fixed policy) can be evaluated the same way, so comparisons are apples-to-apples
 The metrics are the ones a trading desk actually cares about:
 
 * **terminal PnL** and its distribution across episodes (skill *and* consistency),
-* **Sharpe** = mean / std of terminal PnL (risk-adjusted return -- the number
+* **Sharpe** = mean / std of terminal PnL (risk-adjusted return - the number
   that decides whether a strategy is worth running),
 * **inventory risk** taken: mean and max absolute inventory during the episode,
 * **fill rate**: how much the agent actually traded.

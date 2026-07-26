@@ -3,7 +3,7 @@
 Where DQN learns a *value* and acts greedily, PPO learns a *policy* directly: a
 neural network that outputs a probability distribution over actions, improved by
 gradient ascent on expected reward. This suits market making because the natural
-action -- how far to place each quote -- is **continuous**, and a stochastic
+action - how far to place each quote - is **continuous**, and a stochastic
 policy explores it smoothly rather than over a coarse discrete grid.
 
 The pieces, each defensible:
@@ -13,15 +13,15 @@ The pieces, each defensible:
   state-independent parameter), and a *critic* that estimates the state value
   ``V(s)`` used as a variance-reducing baseline.
 
-* **Generalized Advantage Estimation (GAE).** The advantage ``A(s,a)`` -- how
-  much better an action did than the critic expected -- is estimated with an
+* **Generalized Advantage Estimation (GAE).** The advantage ``A(s,a)`` - how
+  much better an action did than the critic expected - is estimated with an
   exponentially-weighted sum of temporal-difference errors, trading bias against
   variance via ``lambda``.
 
 * **Clipped surrogate objective.** PPO maximises
   ``min(r*A, clip(r, 1-eps, 1+eps)*A)`` where ``r`` is the ratio of new to old
   action probability. The clip removes the incentive to move the policy too far
-  in one update -- the trust-region idea that makes PPO stable -- letting us do
+  in one update - the trust-region idea that makes PPO stable - letting us do
   several optimisation epochs over each batch of experience.
 
 * **Entropy bonus** keeps the policy from collapsing to a deterministic one too

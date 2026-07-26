@@ -1,8 +1,8 @@
 """DQN component tests.
 
-Fast, deterministic checks on the moving parts of the agent -- network shapes,
+Fast, deterministic checks on the moving parts of the agent - network shapes,
 replay buffer mechanics, a gradient step, the epsilon schedule, greedy-action
-validity, and save/load -- without any expensive training.
+validity, and save/load - without any expensive training.
 """
 
 import numpy as np

@@ -11,7 +11,7 @@ A limit order book must support, fast:
 
 We get all four cheaply with two structures working together:
 
-* ``PriceLevel`` -- an intrusive doubly-linked **FIFO** of orders at one price.
+* ``PriceLevel`` - an intrusive doubly-linked **FIFO** of orders at one price.
   Append (new order) and unlink (cancel/fill) are both O(1). FIFO ordering *is*
   time priority: the order that arrived first sits at the head and fills first.
 

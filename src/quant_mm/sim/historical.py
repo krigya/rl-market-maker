@@ -64,7 +64,7 @@ def distribution_stats(increments: np.ndarray) -> dict[str, float]:
     z = (x - mean) / (std + 1e-12)
     skew = float(np.mean(z**3))
     excess_kurtosis = float(np.mean(z**4) - 3.0)  # 0 for a Gaussian
-    # lag-1 autocorrelation of |returns| -- the volatility-clustering signature.
+    # lag-1 autocorrelation of |returns| - the volatility-clustering signature.
     a = np.abs(x - mean)
     vol_autocorr = float(np.corrcoef(a[:-1], a[1:])[0, 1]) if len(a) > 2 else float("nan")
     return {

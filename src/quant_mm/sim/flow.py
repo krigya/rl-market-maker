@@ -4,10 +4,10 @@ The market maker quotes into a market populated by *other people's* orders. The
 rate at which marketable (liquidity-taking) orders arrive is what gives the MM
 its fills. We offer two models of that arrival rate:
 
-* :class:`PoissonArrivals` -- the textbook assumption: arrivals are independent,
+* :class:`PoissonArrivals` - the textbook assumption: arrivals are independent,
   constant-rate. Simple, and exactly the assumption behind Avellaneda-Stoikov.
 
-* :class:`HawkesArrivals` -- a **self-exciting** process: each arrival
+* :class:`HawkesArrivals` - a **self-exciting** process: each arrival
   temporarily raises the chance of more arrivals, so trades cluster in bursts.
   This is what real order flow actually looks like, and it injects the
   **non-stationarity** the RL agent has to cope with but the static AS formula

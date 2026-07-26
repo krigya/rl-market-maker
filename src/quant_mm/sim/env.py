@@ -8,7 +8,7 @@ inventory.
 
 Why fills, impact, and adverse selection are *emergent*, not scripted
 -------------------------------------------------------------------
-Most RL market-making demos use a reduced-form fill model -- they *assume* a
+Most RL market-making demos use a reduced-form fill model - they *assume* a
 fill probability ``lambda(delta) = A*exp(-k*delta)``. We don't. Instead:
 
 * Background liquidity providers post a ladder of limit orders each step.
@@ -18,7 +18,7 @@ fill probability ``lambda(delta) = A*exp(-k*delta)``. We don't. Instead:
 So if the agent quotes *tighter* (closer to mid) it jumps ahead of background
 liquidity and fills more often but earns less; quote *wider* and background
 orders shield it, so it fills rarely but earns more per fill. That tradeoff --
-the heart of market making -- falls out of the matching engine for free. And
+the heart of market making - falls out of the matching engine for free. And
 because a fraction of market orders are **informed** (their direction is
 correlated with the next fundamental move), the agent that gets filled is
 disproportionately filled right before the price moves against it: that is
@@ -98,7 +98,7 @@ class MMEnvConfig:
 
     # --- historical replay (Phase 5) ---
     # If set, the fundamental's per-step increments are drawn from this real
-    # series (a random window per episode) instead of Gaussian noise -- an
+    # series (a random window per episode) instead of Gaussian noise - an
     # out-of-distribution test on a real return distribution.
     replay_increments: "np.ndarray | None" = field(default=None, repr=False)
 
@@ -336,8 +336,8 @@ class MarketMakingEnv(_BASE):
     def _liquidate(self) -> float:
         """Flatten any residual inventory at the horizon; return the reward delta.
 
-        We model the unwind analytically -- cross the spread at a fixed cost of
-        ``bg_min_offset`` ticks per share around fair value -- rather than firing
+        We model the unwind analytically - cross the spread at a fixed cost of
+        ``bg_min_offset`` ticks per share around fair value - rather than firing
         a market order at whatever depth happens to remain. This guarantees a
         flat book and charges a realistic liquidity-taking cost, so the agent is
         taught to run inventory down *before* the horizon instead of dumping it.

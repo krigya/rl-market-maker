@@ -1,6 +1,6 @@
 """Deep Q-Network market maker, implemented from scratch in PyTorch.
 
-DQN learns an **action-value function** ``Q(s, a)`` -- the expected discounted
+DQN learns an **action-value function** ``Q(s, a)`` - the expected discounted
 future reward of taking action ``a`` in state ``s`` and acting greedily after.
 The policy is then 'pick the action with the highest Q'. Three ingredients make
 it train stably; each is here and each is worth being able to defend:
@@ -8,12 +8,12 @@ it train stably; each is here and each is worth being able to defend:
 1. **Experience replay** (:class:`ReplayBuffer`). Transitions are stored and
    sampled in random minibatches. This breaks the temporal correlation between
    consecutive market steps (which would otherwise bias the gradient) and lets
-   each experience be reused many times -- crucial when env steps are expensive.
+   each experience be reused many times - crucial when env steps are expensive.
 
 2. **Target network**. The bootstrap target
    ``y = r + gamma * max_a' Q(s', a')`` is computed with a *frozen* copy of the
    network that is only periodically synced. Without it you are regressing
-   toward a target that moves every gradient step -- a feedback loop that
+   toward a target that moves every gradient step - a feedback loop that
    routinely diverges.
 
 3. **Off-policy exploration** via epsilon-greedy with a decaying schedule: act
@@ -147,13 +147,13 @@ class DQN:
         return c.eps_start + frac * (c.eps_end - c.eps_start)
 
     def act(self, obs: np.ndarray) -> int:
-        """Greedy action -- used at evaluation (no exploration)."""
+        """Greedy action - used at evaluation (no exploration)."""
         with torch.no_grad():
             q = self.online(torch.from_numpy(np.asarray(obs, dtype=np.float32)))
             return int(torch.argmax(q).item())
 
     def act_explore(self, obs: np.ndarray) -> int:
-        """Epsilon-greedy action -- used while collecting training data."""
+        """Epsilon-greedy action - used while collecting training data."""
         if self.rng.random() < self.epsilon():
             return int(self.rng.integers(self.n_actions))
         return self.act(obs)
@@ -233,7 +233,7 @@ def train_dqn(
 
     If ``save_dir`` is given, the **best out-of-sample model** (by eval Sharpe) is
     checkpointed to ``save_dir/dqn.pt`` on each evaluation, and ``history.json``
-    is written incrementally -- so an interrupted run still leaves usable
+    is written incrementally - so an interrupted run still leaves usable
     artifacts, and we keep the best policy rather than the last one.
     """
     import json

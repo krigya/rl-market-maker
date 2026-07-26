@@ -5,8 +5,8 @@ Usage (from the project root, using the project venv)::
     .venv\\Scripts\\python.exe scripts\\train_dqn.py --episodes 1500
 
 Artifacts are written to ``runs/dqn/``:
-    * ``dqn.pt``       -- the trained Q-network (load with ``DQN.load``)
-    * ``history.json`` -- per-episode training / evaluation metrics for plotting
+    * ``dqn.pt``       - the trained Q-network (load with ``DQN.load``)
+    * ``history.json`` - per-episode training / evaluation metrics for plotting
 """
 
 from __future__ import annotations

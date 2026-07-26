@@ -84,7 +84,7 @@ class Order:
 class Trade:
     """An execution produced when an aggressing order meets a resting order.
 
-    The trade always prints at the **resting (maker) order's price** — that is
+    The trade always prints at the **resting (maker) order's price** - that is
     the essence of price priority: the order that was in the book first sets the
     price, and the incoming aggressor pays it.
     """

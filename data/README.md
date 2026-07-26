@@ -1,6 +1,6 @@
 # Data
 
-`aapl.csv` — Apple Inc. daily OHLC price data, used only as an **out-of-distribution
+`aapl.csv` - Apple Inc. daily OHLC price data, used only as an **out-of-distribution
 test** in `notebooks/05_historical_validation.ipynb` (the real price path is replayed
 as the simulator's fundamental).
 
